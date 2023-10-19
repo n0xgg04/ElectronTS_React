@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { resolve } = require("path");
 
 module.exports = [
     {
@@ -8,11 +9,11 @@ module.exports = [
         devtool: "source-map",
         module: {
             rules: [
-                {
-                    test: /\.ts(x?)$/,
-                    include: /src/,
-                    use: [{ loader: "ts-loader" }],
-                },
+                // {
+                //     test: /\.ts(x?)$/,
+                //     include: /src/,
+                //     use: [{ loader: "ts-loader" }],
+                // },
                 {
                     test: /\.(js|jsx|ts|tsx)$/,
                     exclude: /node_modules/,
@@ -25,18 +26,9 @@ module.exports = [
                     use: ["style-loader", "css-loader"],
                 },
                 {
-                    test: /\.(scss|sass)$/,
-                    use: [
-                        {
-                            loader: "style-loader",
-                        },
-                        {
-                            loader: "css-loader",
-                        },
-                        {
-                            loader: "sass-loader",
-                        },
-                    ],
+                    test: /\.(scss|sass|css)$/,
+                    include: resolve(__dirname, "src"),
+                    use: ["style-loader", "css-loader", "postcss-loader"],
                 },
             ],
         },
@@ -51,6 +43,9 @@ module.exports = [
         ],
         resolve: {
             extensions: [".ts", ".js", ".tsx", ".jsx"],
+            alias: {
+                "@": resolve(__dirname, "src"),
+            },
         },
     },
 ];

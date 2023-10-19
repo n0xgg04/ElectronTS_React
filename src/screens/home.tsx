@@ -1,13 +1,10 @@
 import * as React from "react";
-import { Helmet } from "react-helmet";
+import Login from "../screens/login";
 
 export default function Home(): React.JSX.Element {
     return (
         <>
-            <Helmet>
-                <title>KKKTrang chu ne con</title>
-            </Helmet>
-            <p>Home</p>
+            <Login />
         </>
     );
 }

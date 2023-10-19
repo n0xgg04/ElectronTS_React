@@ -1,6 +1,7 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import Home from "./screens/home";
+import "./stylesheet/style.scss";
 
 const Index = () => {
     return (
@@ -10,4 +11,6 @@ const Index = () => {
     );
 };
 
-ReactDOM.render(<Index />, document.getElementById("app"));
+const _El = document.getElementById("root") as Element;
+const root = createRoot(_El);
+root.render(<Index />);
