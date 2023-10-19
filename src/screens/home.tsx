@@ -5,7 +5,7 @@ export default function Home(): React.JSX.Element {
     return (
         <>
             <Helmet>
-                <title>Trang chu ne con</title>
+                <title>KKKTrang chu ne con</title>
             </Helmet>
             <p>Home</p>
         </>

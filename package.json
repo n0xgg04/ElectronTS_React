@@ -9,8 +9,7 @@
     "prebuild": "rm -rf ./build && mkdir build && cp static/index.html build/index.html",
     "lint": "yarn eslint ./src --ext .ts,.tsx",
     "lint:fix": "yarn eslint ./src --ext .ts,.tsx --fix",
-    "format": "yarn prettier --write ./src/**/*.{ts,tsx}",
-    "watch": "webpack --config ./webpack.config.js --watch && tsc ./src/electron.ts --outDir ./build --watch && electron ./build/electron.js"
+    "format": "yarn prettier --write ./src/**/*.{ts,tsx}"
   },
   "author": "",
   "license": "ISC",
