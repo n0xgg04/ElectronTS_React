@@ -1,49 +1,56 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = [
     {
-        mode: 'development',
-        entry: './src/index.tsx',
-        target: 'electron-renderer',
-        devtool: 'source-map',
+        mode: "development",
+        entry: "./src/index.tsx",
+        target: "electron-renderer",
+        devtool: "source-map",
         module: {
             rules: [
-            {
-                test: /\.ts(x?)$/,
-                include: /src/,
-                use: [{ loader: 'ts-loader' }]
-            },
+                {
+                    test: /\.ts(x?)$/,
+                    include: /src/,
+                    use: [{ loader: "ts-loader" }],
+                },
                 {
                     test: /\.(js|jsx|ts|tsx)$/,
                     exclude: /node_modules/,
                     use: {
-                        loader: "babel-loader"
+                        loader: "babel-loader",
                     },
                 },
                 {
                     test: /\.css$/,
-                    use: ["style-loader", "css-loader"]
+                    use: ["style-loader", "css-loader"],
                 },
                 {
                     test: /\.(scss|sass)$/,
-                    use: [{
-                        loader: 'style-loader',
-                    }, {
-                        loader: 'css-loader'
-                    }, {
-                        loader: 'sass-loader'
-                    }]
-                }
-            ]
+                    use: [
+                        {
+                            loader: "style-loader",
+                        },
+                        {
+                            loader: "css-loader",
+                        },
+                        {
+                            loader: "sass-loader",
+                        },
+                    ],
+                },
+            ],
         },
         output: {
-            path: __dirname + '/build',
-            filename: 'index.js'
+            path: __dirname + "/build",
+            filename: "index.js",
         },
         plugins: [
             new HtmlWebpackPlugin({
-                template: './build/index.html'
-            })
-        ]
-    }
+                template: "./build/index.html",
+            }),
+        ],
+        resolve: {
+            extensions: [".ts", ".js", ".tsx", ".jsx"],
+        },
+    },
 ];
